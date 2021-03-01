@@ -1,0 +1,27 @@
+type Item {
+    id: ID!
+    title: String
+    post_date: String
+    content: String
+    url: String
+    author: Author
+}
+
+type Author {
+    id: ID!
+    name: String
+    join_date: String
+    email: String
+    items: [Item]
+}
+
+type Query {
+    Items: [Item]
+    itemById(id: ID!): Item
+}
+
+type Mutation {
+    addItem(title: String!, content: String!, url: String!): Item
+    updateItem(id: String!, title: String, content: String, url: String): Item
+    removeItem(id: String!): Item
+}
